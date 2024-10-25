@@ -1,0 +1,14 @@
+{
+  "name": "scrapts",
+  "version": "1.0.0",
+  "description": "A startup scraping project",
+  "main": "topstartups.js",
+  "scripts": {
+    "start": "node topstartups.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.37.0",
+    "xlsx": "^0.18.5"
+  }
+}
