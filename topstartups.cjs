@@ -6,7 +6,9 @@ async function scrapeStartups() {
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    await page.goto('https://topstartups.io');
+    //await page.goto('https://topstartups.io/?company_size=11-50+employees');
+    await page.goto('https://topstartups.io/?company_size=51-100+employees');
+    //https://topstartups.io/?company_size=51-100+employees
 
     async function scrapePage() {
         return await page.evaluate(() => {
@@ -66,7 +68,7 @@ async function scrapeStartups() {
     const worksheet = xlsx.utils.aoa_to_sheet([['Name', 'HQ', 'Industry', 'Funding', 'Website'], ...worksheetData]);
     xlsx.utils.book_append_sheet(workbook, worksheet, 'Startups');
 
-    xlsx.writeFile(workbook, 'startups.xlsx');
+    xlsx.writeFile(workbook, 'startups_51_100.xlsx');
 
     console.log('Data has been scraped and saved to startups.xlsx');
     await browser.close();
